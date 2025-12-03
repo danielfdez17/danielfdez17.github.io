@@ -1,9 +1,14 @@
 
+
 export function Navbar()
 {
 	return (
 		<nav>
-			<h1>Welcome to My Portfolio</h1>
+			<ul className="font-bold">
+				<li className="">Home</li>
+				<li className="">About</li>
+				<li className="">Contact</li>
+			</ul>
 		</nav>
 	)
 }
