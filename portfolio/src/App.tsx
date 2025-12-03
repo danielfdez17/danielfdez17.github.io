@@ -10,7 +10,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className='text-4xl font-bold text-blue-600 bg-gray-100'>
+    <body className='text-white bg-gray-800'>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -30,7 +30,7 @@ function App() {
 
 	  <Contact />
 
-    </div>
+    </body>
   )
 }
 
