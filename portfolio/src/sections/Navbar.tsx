@@ -14,10 +14,10 @@ export default function Navbar() {
 
           {/* Links (desktop) */}
           <div className="hidden md:flex space-x-6 text-gray-700 font-medium">
-            <a href="#hero" className="hover:text-blue-600">Inicio</a>
-            <a href="#projects" className="hover:text-blue-600">Proyectos</a>
-            <a href="#about" className="hover:text-blue-600">Sobre mí</a>
-            <a href="#contact" className="hover:text-blue-600">Contacto</a>
+            <a href="#hero" className="hover:text-blue-600 hover:scale-105 transition">Inicio</a>
+            <a href="#projects" className="hover:text-blue-600 hover:scale-105 transition">Proyectos</a>
+            <a href="#about" className="hover:text-blue-600 hover:scale-105 transition">Sobre mí</a>
+            <a href="#contact" className="hover:text-blue-600 hover:scale-105 transition">Contacto</a>
           </div>
 
           {/* Botón móvil */}

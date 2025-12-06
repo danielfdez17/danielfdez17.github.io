@@ -6,9 +6,6 @@ export default function Contact() {
     <section id="contact" className="py-20 px-6 bg-white">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-900">Contacto</h2>
-        <p className="mt-4 text-gray-600">
-          Puedes escribirme o visitar mis redes.
-        </p>
 
         <div className="mt-10 flex justify-center gap-8 text-3xl text-gray-700">
 
@@ -17,7 +14,7 @@ export default function Contact() {
             href="https://github.com/danielfdez17"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600 transition"
+            className="hover:text-dark-900 hover:scale-110 transition"
           >
             <FaGithub />
           </a>
@@ -27,7 +24,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/daniel-fdez-ortiz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600 transition"
+            className="hover:text-blue-600 hover:scale-110 transition"
           >
             <FaLinkedin />
           </a>
