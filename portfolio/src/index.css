@@ -18,6 +18,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.dark {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: var(--dark) !important;
+}
 /*
 a {
   font-weight: 500;

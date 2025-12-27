@@ -21,11 +21,25 @@ const projects = [
     link: "https://github.com/danielfdez17/AdoptaUnProfe.git",
   },
   {
+	title: "minishell",
+	description:
+	  "Programa en C que simula el comportamiento de una shell. El proyecto require de implementar los siguientes builtins: cd, echo, env, exit, export, pwd, unset, así como la gestión de redirecciones y tuberías.",
+	tecnologies: ["C", "Unix", "Shell"],
+	link: "https://github.com/danielfdez17/minishell.git",
+  },
+  {
     title: "pipex",
     description:
       "Programa en C que simula el comportamiento de tuberías en la línea de comandos de Unix.",
     tecnologies: ["C", "Unix"],
     link: "https://github.com/danielfdez17/pipex.git",
+  },
+  {
+    title: "philosophers",
+    description:
+      "Programa en C que resuelve el problema de los filósofos. Implementa la sincronización de hilos utilizando mutex (cerrojos) para evitar condiciones de carrera y deadlocks.",
+    tecnologies: ["C", "Unix"],
+    link: "https://github.com/danielfdez17/philosophers.git",
   },
 ];
 

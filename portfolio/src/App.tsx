@@ -5,11 +5,12 @@ import { Navbar } from './sections/Navbar'
 import { Projects } from './sections/Projects'
 import ScrollToTop from './sections/ScrollToTop'
 import './App.css'
+import ThemeToggle from './components/ThemeToggle'
 
 function App() {
 
   return (
-    <body className='text-white bg-gray-800'>
+    <div className='text-white bg-gray-800'>
 
 	  <Navbar />
 
@@ -23,7 +24,9 @@ function App() {
 
 	  <ScrollToTop />
 
-    </body>
+	  <ThemeToggle />
+
+    </div>
   )
 }
 
