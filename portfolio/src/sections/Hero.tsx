@@ -17,31 +17,31 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-50"
+      className="min-h-screen flex flex-col items-center justify-center px-6 text-center transition-colors duration-300 bg-[var(--surface-muted)]"
     >
-      <h1 className="text-5xl font-extrabold text-gray-900">
-        Hola, soy <span className="text-blue-600">Daniel</span>
+      <h1 className="text-5xl font-extrabold text-[var(--text-primary)]">
+        Hola, soy <span className="text-[var(--accent)]">Daniel</span>
       </h1>
-      <p className="mt-4 text-lg text-gray-600 max-w-xl">
+      <p className="mt-4 max-w-xl text-lg text-[var(--text-secondary)]">
         Desarrollador Full Stack apasionado por la programación.
       </p>
-      <div className="mt-2 text-md text-gray-600 max-w-xl text-3xl">
-        <TbBrandCpp className="inline-block ml-2 text-blue-600" />
-        <FaJava className="inline-block ml-2 text-red-600" />
-        <SiSpringboot className="inline-block ml-2 text-green-600" />
-        <FaPython className="inline-block ml-2 text-yellow-600" />
-        <FaDocker className="inline-block ml-2 text-blue-400" />
-        <FaNodeJs className="inline-block ml-2 text-green-600" />
-        <FaHtml5 className="inline-block ml-2 text-orange-600" />
-        <FaCss3Alt className="inline-block ml-2 text-blue-600" />
-        <FaJs className="inline-block ml-2 text-yellow-500" />
-        <FaBootstrap className="inline-block ml-2 text-purple-600" />
-        <FaGitAlt className="inline-block ml-2 text-red-600" />
-        <FaLinux className="inline-block ml-2 text-gray-900" />
+      <div className="mt-2 max-w-xl text-3xl text-[var(--text-secondary)]">
+        <TbBrandCpp className="ml-2 inline-block text-blue-600" />
+        <FaJava className="ml-2 inline-block text-red-600" />
+        <SiSpringboot className="ml-2 inline-block text-green-600" />
+        <FaPython className="ml-2 inline-block text-yellow-600" />
+        <FaDocker className="ml-2 inline-block text-blue-400" />
+        <FaNodeJs className="ml-2 inline-block text-green-600" />
+        <FaHtml5 className="ml-2 inline-block text-orange-600" />
+        <FaCss3Alt className="ml-2 inline-block text-blue-600" />
+        <FaJs className="ml-2 inline-block text-yellow-500" />
+        <FaBootstrap className="ml-2 inline-block text-purple-600" />
+        <FaGitAlt className="ml-2 inline-block text-red-600" />
+        <FaLinux className="ml-2 inline-block text-[var(--text-primary)]" />
       </div>
       <a
         href="#projects"
-        className="mt-8 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 hover:scale-105 transition"
+        className="mt-8 inline-block transform rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent-contrast)] transition hover:scale-105 hover:bg-[var(--accent-hover)]"
       >
         Ver proyectos
       </a>

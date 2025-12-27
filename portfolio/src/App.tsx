@@ -1,32 +1,29 @@
-import { About } from './sections/About'
-import { Contact } from './sections/Contact'
-import { Hero } from './sections/Hero'
-import { Navbar } from './sections/Navbar'
-import { Projects } from './sections/Projects'
-import ScrollToTop from './sections/ScrollToTop'
-import './App.css'
-import ThemeToggle from './components/ThemeToggle'
+import { About } from "./sections/About"
+import { Contact } from "./sections/Contact"
+import { Hero } from "./sections/Hero"
+import { Navbar } from "./sections/Navbar"
+import { Projects } from "./sections/Projects"
+import ScrollToTop from "./sections/ScrollToTop"
+import "./App.css"
+import ThemeToggle from "./components/ThemeToggle"
 
 function App() {
+	return (
+		<div className="flex flex-col min-h-screen bg-[var(--surface)] text-[var(--text-primary)] transition-colors duration-300">
+			<Navbar />
 
-  return (
-    <div className='text-white bg-gray-800'>
+			<Hero />
 
-	  <Navbar />
+			<About />
 
-	  <Hero />
+			<Projects />
 
-	  <About />
+			<Contact />
 
-	  <Projects />
+			<ScrollToTop />
 
-	  <Contact />
-
-	  <ScrollToTop />
-
-	  <ThemeToggle />
-
-    </div>
+			<ThemeToggle />
+		</div>
   )
 }
 

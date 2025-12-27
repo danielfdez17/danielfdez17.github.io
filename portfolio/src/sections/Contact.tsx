@@ -3,18 +3,18 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-white">
-      <div className="max-w-xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900">Contacto</h2>
+    <section id="contact" className="bg-[var(--surface)] px-6 py-20 transition-colors duration-300">
+      <div className="mx-auto max-w-xl text-center">
+        <h2 className="text-4xl font-bold text-[var(--text-primary)]">Contacto</h2>
 
-        <div className="mt-10 flex justify-center gap-8 text-3xl text-gray-700">
+        <div className="mt-10 flex justify-center gap-8 text-3xl text-[var(--text-secondary)]">
 
           {/* GitHub */}
           <a 
             href="https://github.com/danielfdez17"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-dark-900 hover:scale-110 transition"
+            className="transition hover:scale-110 hover:text-[var(--text-primary)]"
           >
             <FaGithub />
           </a>
@@ -24,7 +24,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/daniel-fdez-ortiz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600 hover:scale-110 transition"
+            className="transition hover:scale-110 hover:text-[var(--accent)]"
           >
             <FaLinkedin />
           </a>

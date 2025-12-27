@@ -7,6 +7,7 @@ export default {
 				main: {
 					dark: "#0a0a0a", // Negro profundo
 					lessdark: "#1a1a1a", // Negro suave
+					gray: "#6b7280", // Gris
 				},
 				accent: {
 					red: "#ff3b3b", // Rojo vibrante (acentos)

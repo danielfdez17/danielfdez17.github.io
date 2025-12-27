@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,10 +7,17 @@
   --dark: #0a0a0a;
   --lessdark: #1a1a1a;
   --red: #ff3b3b;
-  --darkred: #b02020; 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --darkred: #b02020;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-contrast: #ffffff;
+  color-scheme: light;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,9 +25,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.dark {
-  color: rgba(255, 255, 255, 0.87) !important;
-  background-color: var(--dark) !important;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark {
+  --surface: #050505;
+  --surface-muted: #0f172a;
+  --card: #111827;
+  --border: #1f2937;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5f5;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --accent-contrast: #ffffff;
+  color-scheme: dark;
 }
 /*
 a {

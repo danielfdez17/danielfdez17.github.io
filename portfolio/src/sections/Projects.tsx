@@ -47,23 +47,23 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900">
+    <section id="projects" className="bg-[var(--surface-muted)] px-6 py-20 transition-colors duration-300">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-center text-4xl font-bold text-[var(--text-primary)]">
           Proyectos
         </h2>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3 max-h-[400px] overflow-y-auto space-y-6">
+        <div className="mt-10 grid max-h-[400px] gap-6 overflow-y-auto md:grid-cols-3">
           {projects.map((p, index) => (
             <div
               key={index}
               onClick={() => window.open(p.link, "_blank")}
-              className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition cursor-pointer hover:scale-102 min-w-[300px] max-w-sm"
+              className="min-w-[300px] max-w-sm cursor-pointer rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-left shadow transition duration-300 hover:scale-105 hover:shadow-lg"
             >
-              <h3 className="text-xl font-semibold text-gray-900">{p.title}</h3>
-              <p className="text-gray-600 mt-2">{p.description}</p>
-              <hr className="border-gray-400 my-4"></hr>
-              <div className="text-gray-900 mt-2">
+              <h3 className="text-xl font-semibold text-[var(--text-primary)]">{p.title}</h3>
+              <p className="mt-2 text-[var(--text-secondary)]">{p.description}</p>
+              <hr className="my-4 border-[var(--border)]" />
+              <div className="mt-2 text-[var(--text-primary)]">
                 {p.tecnologies.join(", ")}
               </div>
             </div>
