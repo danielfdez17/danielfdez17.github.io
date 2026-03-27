@@ -1,4 +1,8 @@
 @import "tailwindcss";
+
+/* Import libcss library styles */
+@import "../vendor/libcss/dist/css/libcss.css";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
