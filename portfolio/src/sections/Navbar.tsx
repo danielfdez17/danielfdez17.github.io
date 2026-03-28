@@ -1,41 +1,74 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const sections = ["hero", "about", "projects", "contact"] as const;
+type SectionId = (typeof sections)[number];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<(typeof sections)[number]>("hero");
+  const [activeSection, setActiveSection] = useState<SectionId>("hero");
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const navContainerRef = useRef<HTMLDivElement | null>(null);
+  const navItemRefs = useRef<Partial<Record<SectionId, HTMLAnchorElement | null>>>({});
   const { t } = useTranslation();
 
+  const updateIndicator = useCallback(() => {
+    const activeItem = navItemRefs.current[activeSection];
+    const container = navContainerRef.current;
+
+    if (!activeItem || !container) {
+      setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
+
+    const left = activeItem.offsetLeft;
+    const width = activeItem.offsetWidth;
+    setIndicatorStyle({ left, width, opacity: 1 });
+  }, [activeSection]);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id as (typeof sections)[number]);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const updateActiveSection = () => {
+      const navOffset = 140;
+      const scrollPosition = window.scrollY + navOffset;
 
-    const observedElements = sections
-      .map((sectionId) => document.getElementById(sectionId))
-      .filter((element): element is HTMLElement => element !== null);
+      let currentSection: SectionId = "hero";
+      sections.forEach((sectionId) => {
+        const sectionElement = document.getElementById(sectionId);
+        if (sectionElement && sectionElement.offsetTop <= scrollPosition) {
+          currentSection = sectionId;
+        }
+      });
 
-    observedElements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+      setActiveSection((prev) => (prev === currentSection ? prev : currentSection));
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
-  const navItemClass = (sectionId: (typeof sections)[number]) =>
+  useEffect(() => {
+    const animationFrameId = window.requestAnimationFrame(updateIndicator);
+    window.addEventListener("resize", updateIndicator);
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", updateIndicator);
+    };
+  }, [updateIndicator]);
+
+  const navItemClass = (sectionId: SectionId) =>
     `rounded-full px-4 py-2 transition ${
       activeSection === sectionId
-        ? "bg-[var(--accent)] text-[var(--accent-contrast)] shadow-[0_8px_20px_var(--glow)]"
-        : "hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]"
+        ? "text-[var(--accent-contrast)]"
+        : "hover:text-[var(--text-primary)]"
     }`;
 
-  const mobileItemClass = (sectionId: (typeof sections)[number]) =>
+  const mobileItemClass = (sectionId: SectionId) =>
     `block rounded-lg px-3 py-2 transition ${
       activeSection === sectionId
         ? "bg-[var(--accent)] text-[var(--accent-contrast)]"
@@ -53,11 +86,16 @@ export default function Navbar() {
             <span className="text-sm font-bold tracking-[0.2em]">PORTFOLIO</span>
           </a>
 
-          <div className="hidden md:flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)]/40 px-2 py-1 text-sm font-semibold text-[var(--text-secondary)]">
-            <a href="#hero" className={navItemClass("hero")}>{t("nav.home")}</a>
-            <a href="#about" className={navItemClass("about")}>{t("nav.about")}</a>
-            <a href="#projects" className={navItemClass("projects")}>{t("nav.projects")}</a>
-            <a href="#contact" className={navItemClass("contact")}>{t("nav.contact")}</a>
+          <div ref={navContainerRef} className="relative hidden items-center rounded-full border border-[var(--border)] bg-[var(--surface)]/40 px-2 py-1 text-sm font-semibold text-[var(--text-secondary)] md:flex">
+            <span
+              aria-hidden="true"
+              className="absolute top-1 bottom-1 rounded-full bg-[var(--accent)] shadow-[0_8px_20px_var(--glow)] transition-all duration-300 ease-[var(--ease-standard)]"
+              style={{ left: indicatorStyle.left, width: indicatorStyle.width, opacity: indicatorStyle.opacity }}
+            />
+            <a ref={(el) => { navItemRefs.current.hero = el; }} href="#hero" className={`relative z-10 ${navItemClass("hero")}`}>{t("nav.home")}</a>
+            <a ref={(el) => { navItemRefs.current.about = el; }} href="#about" className={`relative z-10 ${navItemClass("about")}`}>{t("nav.about")}</a>
+            <a ref={(el) => { navItemRefs.current.projects = el; }} href="#projects" className={`relative z-10 ${navItemClass("projects")}`}>{t("nav.projects")}</a>
+            <a ref={(el) => { navItemRefs.current.contact = el; }} href="#contact" className={`relative z-10 ${navItemClass("contact")}`}>{t("nav.contact")}</a>
           </div>
 
           {/* Boton movil */}
