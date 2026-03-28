@@ -10,7 +10,7 @@ import LanguageToggle from "./components/LanguageToggle"
 
 function App() {
 	return (
-		<div className="flex flex-col min-h-screen bg-[var(--surface)] text-[var(--text-primary)] transition-colors duration-300">
+		<div className="app-shell flex min-h-screen flex-col text-[var(--text-primary)] transition-colors duration-300">
 			<Navbar />
 
 			<Hero />

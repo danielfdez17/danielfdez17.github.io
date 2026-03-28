@@ -6,26 +6,28 @@ export default function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <nav className="bg-[var(--surface)] shadow-md transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+    <nav className="sticky top-0 z-40 px-3 pt-3 sm:px-6">
+      <div className="section-shell border-[var(--border)] px-4 shadow-lg sm:px-6">
+        <div className="flex h-16 items-center justify-between">
           
           {/* Logo */}
-          <div className="text-2xl font-bold text-[var(--accent)]">
+          <a href="#hero" className="font-display flex items-center gap-3 text-[var(--text-primary)]">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)] text-sm font-bold text-[var(--accent-contrast)]">DF</span>
+            <span className="text-sm font-bold tracking-[0.2em]">PORTFOLIO</span>
+          </a>
+
+          <div className="hidden md:flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)]/40 px-2 py-1 text-sm font-semibold text-[var(--text-secondary)]">
+            <a href="#hero" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.home")}</a>
+            <a href="#about" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.about")}</a>
+            <a href="#projects" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.projects")}</a>
+            <a href="#contact" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.contact")}</a>
           </div>
 
-          {/* Links (desktop) */}
-          <div className="hidden md:flex space-x-6 font-medium text-[var(--text-secondary)]">
-            <a href="#hero" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.home")}</a>
-            <a href="#projects" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.projects")}</a>
-            <a href="#about" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.about")}</a>
-            <a href="#contact" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.contact")}</a>
-          </div>
-
-          {/* Botón móvil */}
-          <button 
+          {/* Boton movil */}
+          <button
             className="md:hidden text-[var(--text-secondary)] transition-colors duration-300"
             onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
           >
             {open ? (
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,13 +42,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menú móvil */}
+      {/* Menu movil */}
       {open && (
-        <div className="md:hidden space-y-2 bg-[var(--surface)] px-4 pb-4 shadow transition-colors duration-300">
-          <a href="#hero" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.home")}</a>
-          <a href="#projects" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.projects")}</a>
-          <a href="#about" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.about")}</a>
-          <a href="#contact" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.contact")}</a>
+        <div className="section-shell mt-2 border-[var(--border)] px-4 py-4 shadow-lg md:hidden">
+          <div className="space-y-2 text-sm font-semibold text-[var(--text-secondary)]">
+            <a href="#hero" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.home")}</a>
+            <a href="#projects" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.projects")}</a>
+            <a href="#about" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.about")}</a>
+            <a href="#contact" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.contact")}</a>
+          </div>
         </div>
       )}
     </nav>

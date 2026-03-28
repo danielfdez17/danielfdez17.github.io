@@ -18,7 +18,7 @@ export default function LanguageToggle() {
       type="button"
       onClick={toggleLanguage}
       aria-label={t("language.switchLabel")}
-      className="fixed right-6 top-6 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-[var(--text-primary)] shadow transition hover:shadow-md"
+      className="floating-control fixed right-4 top-[5.15rem] z-50 rounded-full px-4 py-2 text-[var(--text-primary)] transition hover:-translate-y-0.5 sm:right-6"
     >
       {currentLanguage === "es" ? t("language.english") : t("language.spanish")}
     </button>

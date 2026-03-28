@@ -28,7 +28,7 @@ export default function ScrollToTop() {
         <button
           onClick={scrollTop}
           aria-label={t("scrollTop.ariaLabel")}
-          className="fixed bottom-6 right-6 cursor-pointer rounded-full bg-[var(--accent)] p-3 text-[var(--accent-contrast)] shadow-lg transition hover:bg-[var(--accent-hover)] animate-fadeIn"
+          className="fixed bottom-5 right-5 z-50 cursor-pointer rounded-full border border-[var(--border)] bg-[var(--card)] p-3 text-[var(--text-primary)] shadow-lg transition hover:-translate-y-0.5 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] sm:bottom-6 sm:right-6"
         >
           <FaArrowUp size={20} />
         </button>

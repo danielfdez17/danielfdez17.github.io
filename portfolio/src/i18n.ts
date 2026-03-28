@@ -12,6 +12,7 @@ const resources = {
         contact: "Contacto"
       },
       hero: {
+        badge: "Ingeniero Full Stack",
         greetingPrefix: "Hola, soy",
         subtitle: "Desarrollador Full Stack apasionado por la programacion.",
         cta: "Ver proyectos"
@@ -70,6 +71,7 @@ const resources = {
         contact: "Contact"
       },
       hero: {
+        badge: "Software Engineer",
         greetingPrefix: "Hi, I'm",
         subtitle: "Full Stack Developer passionate about software engineering.",
         cta: "View projects"
