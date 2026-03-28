@@ -12,7 +12,7 @@ const resources = {
         contact: "Contacto"
       },
       hero: {
-        badge: "Ingeniero Full Stack",
+        badge: "Ingeniero de Software",
         greetingPrefix: "Hola, soy",
         subtitle: "Desarrollador Full Stack apasionado por la programacion.",
         cta: "Ver proyectos"
