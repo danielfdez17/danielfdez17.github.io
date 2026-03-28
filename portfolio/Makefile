@@ -45,6 +45,17 @@ deps:
 		echo "$(GREEN)[deps]$(RESET) Portfolio dependencies already installed"; \
 	fi
 
+# ? 🔍 Run pre-deploy checks
+predeploy:
+	@$(MAKE) build
+	@echo "$(BLUE)[predeploy]$(RESET) Running pre-deploy checks..."
+
+# ? 🚀 Deploy the portfolio
+deploy:
+	@$(MAKE) predeploy
+	@echo "$(BLUE)[deploy]$(RESET) Deploying portfolio..."
+	pnpm run deploy
+
 # ? ❓ Displays this help message
 help:
 	@awk '\
