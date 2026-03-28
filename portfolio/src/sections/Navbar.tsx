@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <nav className="bg-[var(--surface)] shadow-md transition-colors duration-300">
@@ -14,10 +16,10 @@ export default function Navbar() {
 
           {/* Links (desktop) */}
           <div className="hidden md:flex space-x-6 font-medium text-[var(--text-secondary)]">
-            <a href="#hero" className="transition hover:scale-105 hover:text-[var(--accent)]">Inicio</a>
-            <a href="#projects" className="transition hover:scale-105 hover:text-[var(--accent)]">Proyectos</a>
-            <a href="#about" className="transition hover:scale-105 hover:text-[var(--accent)]">Sobre mí</a>
-            <a href="#contact" className="transition hover:scale-105 hover:text-[var(--accent)]">Contacto</a>
+            <a href="#hero" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.home")}</a>
+            <a href="#projects" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.projects")}</a>
+            <a href="#about" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.about")}</a>
+            <a href="#contact" className="transition hover:scale-105 hover:text-[var(--accent)]">{t("nav.contact")}</a>
           </div>
 
           {/* Botón móvil */}
@@ -41,10 +43,10 @@ export default function Navbar() {
       {/* Menú móvil */}
       {open && (
         <div className="md:hidden space-y-2 bg-[var(--surface)] px-4 pb-4 shadow transition-colors duration-300">
-          <a href="#hero" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">Inicio</a>
-          <a href="#projects" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">Proyectos</a>
-          <a href="#about" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">Sobre mí</a>
-          <a href="#contact" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">Contacto</a>
+          <a href="#hero" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.home")}</a>
+          <a href="#projects" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.projects")}</a>
+          <a href="#about" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.about")}</a>
+          <a href="#contact" className="block text-[var(--text-secondary)] transition hover:text-[var(--accent)]">{t("nav.contact")}</a>
         </div>
       )}
     </nav>

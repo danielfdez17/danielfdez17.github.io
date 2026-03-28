@@ -12,18 +12,21 @@ import {
 } from "react-icons/fa";
 import { TbBrandCpp } from "react-icons/tb";
 import { SiSpringboot } from "react-icons/si";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="hero"
       className="min-h-screen flex flex-col items-center justify-center px-6 text-center transition-colors duration-300 bg-[var(--surface-muted)]"
     >
       <h1 className="text-5xl font-extrabold text-[var(--text-primary)]">
-        Hola, soy <span className="text-[var(--accent)]">Daniel</span>
+        {t("hero.greetingPrefix")} <span className="text-[var(--accent)]">Daniel</span>
       </h1>
       <p className="mt-4 max-w-xl text-lg text-[var(--text-secondary)]">
-        Desarrollador Full Stack apasionado por la programación.
+        {t("hero.subtitle")}
       </p>
       <div className="mt-2 max-w-xl text-3xl text-[var(--text-secondary)]">
         <TbBrandCpp className="ml-2 inline-block text-blue-600" />
@@ -43,7 +46,7 @@ export default function Hero() {
         href="#projects"
         className="mt-8 inline-block transform rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent-contrast)] transition hover:scale-105 hover:bg-[var(--accent-hover)]"
       >
-        Ver proyectos
+        {t("hero.cta")}
       </a>
     </section>
   );

@@ -6,6 +6,7 @@ import { Projects } from "./sections/Projects"
 import ScrollToTop from "./sections/ScrollToTop"
 import "./App.css"
 import ThemeToggle from "./components/ThemeToggle"
+import LanguageToggle from "./components/LanguageToggle"
 
 function App() {
 	return (
@@ -23,6 +24,8 @@ function App() {
 			<ScrollToTop />
 
 			<ThemeToggle />
+
+			<LanguageToggle />
 		</div>
   )
 }

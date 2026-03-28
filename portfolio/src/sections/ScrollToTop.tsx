@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -25,6 +27,7 @@ export default function ScrollToTop() {
       {visible && (
         <button
           onClick={scrollTop}
+          aria-label={t("scrollTop.ariaLabel")}
           className="fixed bottom-6 right-6 cursor-pointer rounded-full bg-[var(--accent)] p-3 text-[var(--accent-contrast)] shadow-lg transition hover:bg-[var(--accent-hover)] animate-fadeIn"
         >
           <FaArrowUp size={20} />
