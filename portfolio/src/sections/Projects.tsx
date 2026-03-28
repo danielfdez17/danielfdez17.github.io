@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 
 const projects = [
@@ -42,7 +43,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="px-3 py-8 sm:px-6 sm:py-10">
-      <div className="section-shell soft-reveal px-6 py-12 sm:px-10">
+      <div style={{ "--delay": "220ms" } as CSSProperties} className="section-shell soft-reveal px-6 py-12 sm:px-10">
         <h2 className="font-display text-center text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
           {t("projects.title")}
         </h2>
@@ -52,7 +53,8 @@ export default function Projects() {
             <article
               key={index}
               onClick={() => window.open(p.link, "_blank")}
-              className="group cursor-pointer rounded-2xl border border-[var(--border)] bg-[var(--surface)]/55 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/40 hover:shadow-[0_18px_40px_var(--glow)]"
+              style={{ "--delay": `${120 + index * 70}ms` } as CSSProperties}
+              className="soft-reveal group cursor-pointer rounded-2xl border border-[var(--border)] bg-[var(--surface)]/55 p-6 text-left transition-[transform,border-color,box-shadow] duration-300 ease-[var(--ease-standard)] hover:-translate-y-1 hover:border-[var(--accent)]/40 hover:shadow-[0_18px_40px_var(--glow)]"
             >
               <h3 className="font-display text-xl font-bold text-[var(--text-primary)]">{t(`${p.translationKey}.title`)}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">{t(`${p.translationKey}.description`)}</p>

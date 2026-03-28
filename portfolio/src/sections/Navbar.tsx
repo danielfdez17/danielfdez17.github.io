@@ -1,9 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+const sections = ["hero", "about", "projects", "contact"] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<(typeof sections)[number]>("hero");
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id as (typeof sections)[number]);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const observedElements = sections
+      .map((sectionId) => document.getElementById(sectionId))
+      .filter((element): element is HTMLElement => element !== null);
+
+    observedElements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
+  const navItemClass = (sectionId: (typeof sections)[number]) =>
+    `rounded-full px-4 py-2 transition ${
+      activeSection === sectionId
+        ? "bg-[var(--accent)] text-[var(--accent-contrast)] shadow-[0_8px_20px_var(--glow)]"
+        : "hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]"
+    }`;
+
+  const mobileItemClass = (sectionId: (typeof sections)[number]) =>
+    `block rounded-lg px-3 py-2 transition ${
+      activeSection === sectionId
+        ? "bg-[var(--accent)] text-[var(--accent-contrast)]"
+        : "hover:bg-[var(--surface-muted)]"
+    }`;
 
   return (
     <nav className="sticky top-0 z-40 px-3 pt-3 sm:px-6">
@@ -17,10 +54,10 @@ export default function Navbar() {
           </a>
 
           <div className="hidden md:flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)]/40 px-2 py-1 text-sm font-semibold text-[var(--text-secondary)]">
-            <a href="#hero" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.home")}</a>
-            <a href="#about" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.about")}</a>
-            <a href="#projects" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.projects")}</a>
-            <a href="#contact" className="rounded-full px-4 py-2 transition hover:bg-[var(--accent)] hover:text-[var(--accent-contrast)]">{t("nav.contact")}</a>
+            <a href="#hero" className={navItemClass("hero")}>{t("nav.home")}</a>
+            <a href="#about" className={navItemClass("about")}>{t("nav.about")}</a>
+            <a href="#projects" className={navItemClass("projects")}>{t("nav.projects")}</a>
+            <a href="#contact" className={navItemClass("contact")}>{t("nav.contact")}</a>
           </div>
 
           {/* Boton movil */}
@@ -46,10 +83,10 @@ export default function Navbar() {
       {open && (
         <div className="section-shell mt-2 border-[var(--border)] px-4 py-4 shadow-lg md:hidden">
           <div className="space-y-2 text-sm font-semibold text-[var(--text-secondary)]">
-            <a href="#hero" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.home")}</a>
-            <a href="#projects" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.projects")}</a>
-            <a href="#about" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.about")}</a>
-            <a href="#contact" className="block rounded-lg px-3 py-2 transition hover:bg-[var(--surface-muted)]">{t("nav.contact")}</a>
+            <a href="#hero" onClick={() => setOpen(false)} className={mobileItemClass("hero")}>{t("nav.home")}</a>
+            <a href="#about" onClick={() => setOpen(false)} className={mobileItemClass("about")}>{t("nav.about")}</a>
+            <a href="#projects" onClick={() => setOpen(false)} className={mobileItemClass("projects")}>{t("nav.projects")}</a>
+            <a href="#contact" onClick={() => setOpen(false)} className={mobileItemClass("contact")}>{t("nav.contact")}</a>
           </div>
         </div>
       )}

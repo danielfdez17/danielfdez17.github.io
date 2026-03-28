@@ -10,6 +10,7 @@ import {
   FaNodeJs,
   FaPython,
 } from "react-icons/fa";
+import type { CSSProperties } from "react";
 import { TbBrandCpp } from "react-icons/tb";
 import { SiSpringboot } from "react-icons/si";
 import { useTranslation } from "react-i18next";
@@ -23,17 +24,17 @@ export default function Hero() {
       className="px-3 pb-12 pt-8 sm:px-6"
     >
       <div className="section-shell soft-reveal min-h-[calc(100vh-6.5rem)] px-6 py-14 text-center sm:px-10 lg:px-16">
-        <p className="font-display mx-auto w-fit rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+        <p style={{ "--delay": "80ms" } as CSSProperties} className="soft-reveal font-display mx-auto w-fit rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
           {t("hero.badge")}
         </p>
-        <h1 className="font-display mt-7 text-4xl font-extrabold leading-tight text-[var(--text-primary)] sm:text-6xl">
+        <h1 style={{ "--delay": "160ms" } as CSSProperties} className="soft-reveal font-display mt-7 text-4xl font-extrabold leading-tight text-[var(--text-primary)] sm:text-6xl">
           {t("hero.greetingPrefix")} <span className="text-[var(--accent)]">Daniel</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base text-[var(--text-secondary)] sm:text-xl">
+        <p style={{ "--delay": "240ms" } as CSSProperties} className="soft-reveal mx-auto mt-6 max-w-2xl text-base text-[var(--text-secondary)] sm:text-xl">
           {t("hero.subtitle")}
         </p>
 
-        <div className="mx-auto mt-9 grid max-w-3xl grid-cols-4 gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)]/65 p-4 text-2xl text-[var(--text-secondary)] sm:grid-cols-6 sm:text-3xl">
+        <div style={{ "--delay": "320ms" } as CSSProperties} className="soft-reveal mx-auto mt-9 grid max-w-3xl grid-cols-4 gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)]/65 p-4 text-2xl text-[var(--text-secondary)] sm:grid-cols-6 sm:text-3xl">
           <TbBrandCpp className="tech-icon mx-auto text-blue-500" />
           <FaJava className="tech-icon mx-auto text-red-500" />
           <SiSpringboot className="tech-icon mx-auto text-green-500" />
@@ -50,7 +51,8 @@ export default function Hero() {
 
         <a
           href="#projects"
-          className="mt-10 inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-7 py-3 font-bold text-[var(--accent-contrast)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-[0_10px_30px_var(--glow)]"
+          style={{ "--delay": "400ms" } as CSSProperties}
+          className="soft-reveal mt-10 inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-7 py-3 font-bold text-[var(--accent-contrast)] transition-[transform,box-shadow,background-color] duration-300 ease-[var(--ease-standard)] hover:-translate-y-0.5 hover:bg-[var(--accent-hover)] hover:shadow-[0_10px_30px_var(--glow)]"
         >
           {t("hero.cta")}
         </a>
