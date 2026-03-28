@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 export default function LanguageToggle() {
   const { i18n, t } = useTranslation();
-  const currentLanguage = i18n.resolvedLanguage ?? "es";
+  const currentLanguage = i18n.resolvedLanguage ?? "en";
 
   useEffect(() => {
     document.documentElement.lang = currentLanguage;
